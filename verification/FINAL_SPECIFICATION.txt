@@ -1,0 +1,151 @@
+FINAL SPECIFICATION — COMPLETED T8
+Bounded-arity information-inequality barrier
+24 November 2026 | package 0.8.0
+
+PURPOSE AND REVIEW STATUS
+
+This is a concise correspondence record for the definitions and final result
+already approved in E31, E32 and T8 of the 35-page review packet. The assistant
+compared the completed Lean statements with those requirements, including an
+independent review of quantifier order and objective semantics. This records
+implementation correspondence to the existing approval; it does not claim a
+new human review of the source. The source and all proof dependencies compile.
+
+Approved review SHA256:
+7f4b0834490e343f9905bfa66891643a998ba272c49f0ae95daf48bb6e44c9b1
+
+1. THE FIXED TABLE AND PARAMETERS
+
+P is the finite type of physical participants and N = |P|. Gamma is the
+approved proper monotone access structure. The secret is the distinct index
+none in Option P, and participant p has index some p. Let r >= 2 and
+
+    c_r = choose(r - 2, floor((r - 2)/2)).
+
+The witness is the real-valued version of the existing natural-valued table:
+
+    F(X) = (formalTable Gamma (arityConstant r) X : Real).
+
+This choice depends on P, Gamma and r alone. It is made before any field,
+inequality coefficients, grouping, or local representation is selected.
+All earlier definitions, including this formal table, are unchanged.
+
+2. E31 — EXACT FEASIBILITY DOMAIN
+
+FeasibleAtArity r Gamma F is the conjunction of:
+
+  (a) IsPolymatroid F: F(empty)=0, monotonicity and submodularity on ALL
+      subsets of Option P.
+  (b) HasNormalizedAccess Gamma F: F({none})=1 and every reviewed privacy /
+      reconstruction equality.
+  (c) For EVERY natural k <= r, EVERY real coefficient family a indexed by
+      subsets of Fin k, and EVERY grouping A : Fin k -> Finset (Option P),
+      if a is a valid homogeneous information inequality, then
+
+          sum over I subset Fin k of a(I) * F(union_{j in I} A(j)) >= 0.
+
+There is one F outside all of these quantifiers. k=0 and k=1 are included.
+Groups may be empty, repeated, overlapping, arbitrarily large, and may include
+the secret. Coefficients are arbitrary reals, with no additive constant and
+no restriction to a selected list of inequalities.
+
+ValidInformation retains the E28/E29 domain: arbitrary countable alphabets,
+one common joint law, and finite full-joint entropy. See E28_comparison.txt.
+
+3. PRESCRIBED-FIELD RANK CONSTRAINTS
+
+RankConstraintsAtArity K r F repeats the same universal grouping/arity
+condition using ValidRank K. K has only the Field assumption: it may be finite
+or infinite, in any characteristic and of any size. RankFeasibleAtArity K r
+Gamma F conjoins the entire information-feasibility condition with these rank
+constraints. Both apply to the SAME table.
+
+barrier_checkpoint fixes the explicit F above and proves simultaneously:
+
+    FeasibleAtArity r Gamma F
+    AND, for every field K, RankConstraintsAtArity K r F
+    AND, for every physical participant p,
+        F({some p}) = 1 + c_r*(N - 1)
+    AND MaxShareAtMost F (1 + c_r*(N - 1)).
+
+barrier_exists_witness chooses F before the universal quantifier over fields.
+Both statements also have the quantifiers over inequalities and groupings
+inside their feasibility predicates, as required by T8.
+
+4. E32 — THE ACTUAL MAXIMUM OBJECTIVE
+
+The new convenience definition maxShare F is the finite supremum of
+F({some p}) over physical participants p. Properness of Gamma is proved to
+make P nonempty; maxShare_attained proves this supremum is attained and hence
+is an actual maximum. maxShareAtMost_iff proves exactly
+
+    MaxShareAtMost F L <-> maxShare F <= L.
+
+This relates the explicit maximum to the pointwise objective definition
+already approved in E32. Secret normalization is supplied by item 2(b), so
+these are normalized share values. The witness has EXACT maximum
+
+    maxShare F = 1 + c_r*(N - 1).
+
+5. THE TWO INFIMUM CEILINGS
+
+FeasibleShareValues r Gamma is the set of values maxShare F attained by
+FeasibleAtArity r Gamma tables. relaxationValue r Gamma is its infimum.
+The corresponding rank-strengthened definitions use RankFeasibleAtArity K.
+The code proves these sets are nonempty for r>=2 and bounded below by zero.
+Therefore the infimum theorems have their intended mathematical meaning:
+
+    relaxationValue r Gamma <= 1 + c_r*(N - 1),
+
+    rankRelaxationValue K r Gamma <= 1 + c_r*(N - 1)
+        for every prescribed field K.
+
+The additional theorem relaxationValue_le_rankRelaxationValue proves that
+adjoining rank constraints can only increase the objective infimum.
+No assertion is made that the ceiling is the optimum for every Gamma.
+
+6. SIX-VARIABLE SPECIALIZATION
+
+arityConstant 6 = 6. Properness gives N>=1, so the natural-number formula
+casts to the ordinary real expression 6*N - 5. Both relaxation_ceiling_six
+and rank_relaxation_ceiling_six have that exact displayed bound.
+
+7. SCOPE OF THE COMPLETED RESULT
+
+The main reviewed milestones T1 through T8 are complete. The result concerns
+the stated relaxation on original share and secret indices. A local model
+may vary with the grouping; compatibility as a global sharing distribution
+is not asserted. The theorem imposes every reviewed inequality simultaneously
+on the same explicit table, so every subcollection is covered as well.
+
+Optional common conditioning (manuscript Appendix B) and the asymptotic /
+counting consequences (Section 6) are separate from the approved main scope
+and are not claimed here. The exact every-field route supplies the rank
+conclusion directly; the alternate restriction-of-scalars proof is unnecessary.
+
+8. VERIFICATION EVIDENCE
+
+Full project build: success, 7,458 jobs, Lean 4.36.0.
+Axiom audit: success, 138 declarations; all reported axiom sets are subsets of
+{propext, Classical.choice, Quot.sound}. No proof placeholders or project axioms.
+All 32 earlier proof modules and dependency pins are unchanged.
+All three new modules compile without warnings. The previously known harmless
+FormalTable unused-section-variable warning remains.
+
+Files:
+  ArityRestriction.lean — restriction from r groups to every k<=r.
+  Barrier.lean — E31 and the final single-table T8 theorem.
+  RelaxationCeiling.lean — actual maximum, infima, and 6*N-5 corollaries.
+  milestone_8.txt — full build and axiom-audit output.
+  milestone_8.json — dependency revisions and exact source hashes.
+
+UNDERSTANDING — OPTIONAL PROOF OUTLINE
+
+Pad a k-group query with empty groups until it has r groups. Apply the exact
+T6 representation over the requested field, then restrict that single model
+to the original labels. Over the binary field T7 supplies one finite joint
+entropy law with exactly the same entries. Apply each universally valid
+inequality to its model. T3 already gives the whole-table Shannon/access
+constraints and the singleton formula. The fixed table is therefore feasible
+and attains the stated maximum, placing that value inside each objective set;
+the infimum is at most this attained value.

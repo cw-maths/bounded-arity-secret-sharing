@@ -1,0 +1,105 @@
+MILESTONE 4 VERIFICATION RECORD
+Date: 24 November 2026 (Asia/Hong_Kong)
+Lean: 4.36.0, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9
+mathlib: fc4f59e577feb1a4956671bc04ac18aaaf8cd842
+Platform: x86_64-unknown-linux-gnu
+
+The commands below were executed in the assistant workspace.
+All T1-T3 proof modules were preserved byte-for-byte.
+
+COMMAND: lake build
+EXIT CODE: 0
+
+⚠ [6392/6406] Replayed BoundedArity.FormalTable
+warning: BoundedArity/FormalTable.lean:161:0: automatically included section variable(s) unused in theorem `BoundedArity.unauthorizedBit_antitone`:
+  [DecidableEq P]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq P] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [6402/6406] Built BoundedArity.OneClause (1.0s)
+Build completed successfully (6406 jobs).
+
+COMMAND: lake env lean AxiomAudit.lean
+EXIT CODE: 0
+
+BoundedArity.interpolation.{u_1, u_2} {P : Type u_1} {G : Type u_2} [Fintype P] [Fintype G] [DecidableEq P]
+  [DecidableEq G] (B : G → Finset P) (Γ : BoundedArity.AccessStructure P) (J : Finset G) :
+  BoundedArity.InterpolatedAuthorized B Γ (BoundedArity.visibleTypes B J) ↔
+    Γ.Authorized (BoundedArity.physicalUnion B J)
+'BoundedArity.exists_maximalUnauthorized_superset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.interpolation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.clause_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.interpolatedAuthorized_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+BoundedArity.pair_codegree_le.{u_1, u_2} {P : Type u_1} {G : Type u_2} [Fintype P] [Fintype G] [DecidableEq P]
+  [DecidableEq G] (B : G → Finset P) (Γ : BoundedArity.AccessStructure P) {t u : Finset G}
+  (ht : t ∈ BoundedArity.occurringTypes B) (hu : u ∈ BoundedArity.occurringTypes B) (hne : t ≠ u) :
+  (BoundedArity.clausesContainingPair B Γ t u).card ≤ (Fintype.card G - 2).choose ((Fintype.card G - 2) / 2)
+'BoundedArity.middle_choose_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.card_le_middle_choose_of_antichain_subsets' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.pair_codegree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+BoundedArity.pairCoverage_singleton.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P] (p : P) :
+  BoundedArity.pairCoverage {p} = Fintype.card P - 1
+'BoundedArity.pairCoverage_strict_submodular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.pairCoverage_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+BoundedArity.formalTable_isPolymatroid.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P]
+  (Γ : BoundedArity.AccessStructure P) (b : ℕ) (hb : 1 ≤ b) :
+  BoundedArity.IsPolymatroid fun X => ↑(BoundedArity.formalTable Γ b X)
+BoundedArity.formalTable_hasNormalizedAccess.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P]
+  (Γ : BoundedArity.AccessStructure P) (b : ℕ) :
+  BoundedArity.HasNormalizedAccess Γ fun X => ↑(BoundedArity.formalTable Γ b X)
+BoundedArity.formalTable_singleton.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P] (Γ : BoundedArity.AccessStructure P)
+  (b : ℕ) (p : P) : BoundedArity.formalTable Γ b {some p} = 1 + b * (Fintype.card P - 1)
+BoundedArity.formalTable_checkpoint.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P]
+  (Γ : BoundedArity.AccessStructure P) (b : ℕ) (hb : 1 ≤ b) :
+  (BoundedArity.IsPolymatroid fun X => ↑(BoundedArity.formalTable Γ b X)) ∧
+    (BoundedArity.HasNormalizedAccess Γ fun X => ↑(BoundedArity.formalTable Γ b X)) ∧
+      (∀ (p : P), BoundedArity.formalTable Γ b {some p} = 1 + b * (Fintype.card P - 1)) ∧
+        BoundedArity.MaxShareAtMost (fun X => ↑(BoundedArity.formalTable Γ b X)) ↑(1 + b * (Fintype.card P - 1))
+BoundedArity.formalTable_arity_checkpoint.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P]
+  (Γ : BoundedArity.AccessStructure P) (r : ℕ) :
+  (BoundedArity.IsPolymatroid fun X => ↑(BoundedArity.formalTable Γ (BoundedArity.arityConstant r) X)) ∧
+    (BoundedArity.HasNormalizedAccess Γ fun X => ↑(BoundedArity.formalTable Γ (BoundedArity.arityConstant r) X)) ∧
+      BoundedArity.MaxShareAtMost (fun X => ↑(BoundedArity.formalTable Γ (BoundedArity.arityConstant r) X))
+        ↑(1 + BoundedArity.arityConstant r * (Fintype.card P - 1))
+'BoundedArity.formalTable_isPolymatroid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.formalTable_hasNormalizedAccess' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.formalTable_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.formalTable_checkpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.formalTable_arity_checkpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+BoundedArity.LinearRankRealizes.{u_1, u_2} (K : Type u_1) [Field K] {E : Type u_2} (g : Finset E → ℕ) : Prop
+BoundedArity.polynomialEvaluation_finrank.{u_1, u_2} {K : Type u_1} {E : Type u_2} [Field K] [Fintype E] (α : E → K)
+  (hα : Function.Injective α) (d : ℕ) :
+  Module.finrank K ↥(BoundedArity.polynomialEvaluation α d).range = min d (Fintype.card E)
+BoundedArity.evaluationSpan_finrank.{u_1, u_2} {K : Type u_1} {E : Type u_2} [Field K] [Fintype E] (α : E → K)
+  (hα : Function.Injective α) (d : ℕ) :
+  Module.finrank K ↥(Submodule.span K (Set.range fun i => BoundedArity.evaluationVector (α i) d)) =
+    min (Fintype.card E) d
+BoundedArity.sum_fin_min_eq_choose_sub (m k : ℕ) (hkm : k ≤ m) : ∑ d, min k (↑d + 1) = m.choose 2 - (m - k).choose 2
+def BoundedArity.OneClauseRealizes.{u_2, u_3} : {E : Type u_2} →
+  [DecidableEq E] → (K : Type u_3) → [Field K] → Finset E → Prop :=
+fun {E} [DecidableEq E] K [Field K] C =>
+  ∃ n key W,
+    Module.finrank K ↥key = 1 ∧
+      (∀ p ∉ C, W p = ⊥) ∧
+        (∀ p ∈ C, key ≤ W p) ∧
+          ∀ (U : Finset E), Module.finrank K ↥(BoundedArity.jointSubspace W U) = BoundedArity.clausePairCoverage C U
+BoundedArity.oneClause_checkpoint.{u_1, u_2} {K : Type u_1} {E : Type u_2} [Field K] [DecidableEq E] (C : Finset E)
+  (hm : 2 ≤ C.card) (hK : Nonempty (↥C ↪ K)) : BoundedArity.OneClauseRealizes K C
+BoundedArity.oneClause_finiteField_checkpoint.{u_1, u_2} {K : Type u_1} {E : Type u_2} [Field K] [DecidableEq E]
+  [Fintype K] (C : Finset E) (hm : 2 ≤ C.card) (hK : C.card ≤ Fintype.card K) : BoundedArity.OneClauseRealizes K C
+BoundedArity.oneClause_infiniteField_checkpoint.{u_1, u_2} {K : Type u_1} {E : Type u_2} [Field K] [DecidableEq E]
+  [Infinite K] (C : Finset E) (hm : 2 ≤ C.card) : BoundedArity.OneClauseRealizes K C
+BoundedArity.oneClause_linearRankRealizes.{u_1, u_2} {K : Type u_1} {E : Type u_2} [Field K] [DecidableEq E]
+  (C : Finset E) (hm : 2 ≤ C.card) (hK : Nonempty (↥C ↪ K)) :
+  BoundedArity.LinearRankRealizes K (BoundedArity.clausePairCoverage C)
+'BoundedArity.polynomialEvaluation_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.evaluationSpan_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.sum_fin_min_eq_choose_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.clausePairCoverage_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.oneClauseKey_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.oneClauseShare_joint_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.oneClause_checkpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.oneClause_finiteField_checkpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.oneClause_infiniteField_checkpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.oneClause_linearRankRealizes' depends on axioms: [propext, Classical.choice, Quot.sound]

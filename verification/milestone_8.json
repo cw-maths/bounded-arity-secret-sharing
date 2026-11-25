@@ -1,0 +1,857 @@
+{
+  "date": "2026-11-24",
+  "timezone": "Asia/Hong_Kong",
+  "status": "build_and_axiom_audit_passed",
+  "main_formalization_status": "T1_through_T8_complete",
+  "compiler_available_to_assistant": true,
+  "lean_version": "4.36.0",
+  "lean_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+  "lean_version_output": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "platform": "x86_64-unknown-linux-gnu",
+  "mathlib_revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+  "package_version": "0.8.0",
+  "build_jobs": 7458,
+  "build_exit_code": 0,
+  "axiom_audit_exit_code": 0,
+  "audited_declarations_count": 138,
+  "new_audited_declarations_count": 34,
+  "audited_declarations": {
+    "BoundedArity.exists_maximalUnauthorized_superset": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.interpolation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clause_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.interpolatedAuthorized_full": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.middle_choose_mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.card_le_middle_choose_of_antichain_subsets": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pair_codegree_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pairCoverage_strict_submodular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pairCoverage_singleton": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_isPolymatroid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_hasNormalizedAccess": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_singleton": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_arity_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.polynomialEvaluation_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.evaluationSpan_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.sum_fin_min_eq_choose_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clausePairCoverage_eq_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClauseKey_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClauseShare_joint_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClause_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClause_finiteField_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClause_infiniteField_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClause_linearRankRealizes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clauseAssembly_pair_rank_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clauseVectorModel_of_oneClause": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.finrank_secret_sup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.jointSubspace_withSecret": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.assemblySecret_mem_joint_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.assemblySecret_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.assembly_physical_rank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.assembly_secret_rank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clauseAssembly_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clauseAssembly_finiteField_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clauseAssembly_infiniteField_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clauseAssembly_formalTable_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clauseAssembly_finiteField_formalTable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clauseAssembly_infiniteField_formalTable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.differenceSpace_finrank_add_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.jointSubspace_pairDifferences": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.exactClause_joint_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClause_exact_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.occurringType_card_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.hitsAll_typeClauses_visible_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.type_clauses_pair_count_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.typeModel_everyField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.physicalTable_restore": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.retainedShares_joint_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.typeRepresentative_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.type_coverage_restore": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.jointSubspace_biUnion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.jointSubspace_fullGroupSpace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.physicalGroupRealizes_of_typeModel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.physicalGroupRealizes_of_unauthorized": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.physicalGroupRealizes_finiteField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.physicalGroupRealizes_infiniteField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.localRepresentability_finiteField_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.localRepresentability_infiniteField_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.localGroupRealizes_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.localRepresentability_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.localGroupRealizes_arity_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.localRepresentability_arity_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmf_entropy_summand_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropyTerm_toReal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropy_ne_top": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropyReal_eq_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropyReal_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropyReal_eq_tsum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropy_map_eq_weighted_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropy_map_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropy_map_ne_top": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropy_map_of_leftInverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.DiscreteJointLaw.finiteJointEntropy_iff_univ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.DiscreteJointLaw.jointEntropyENN_le_full": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.DiscreteJointLaw.jointEntropyENN_ne_top": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.DiscreteJointLaw.jointEntropy_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.DiscreteJointLaw.jointEntropy_eq_tsum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.DiscreteJointLaw.finiteJointEntropy_of_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.DiscreteJointLaw.jointEntropy_empty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.IsFiniteEntropyTable.isDiscreteEntropyTable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.IsDiscreteEntropyTable.empty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.map_uniformPMF_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropyReal_uniformPMF": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.linear_fibre_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.map_uniformPMF_linear_toReal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropyReal_map_uniform_linear_log": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pmfEntropyReal_map_uniform_linearMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.finiteField_entropyScale_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.observationJointMap_ker": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.observationJointMap_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.observationJointMap_natCard_range": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.inequalityValue_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.inequalityValue_smul_nonneg_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.inequalityValue_nonneg_of_scaled": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.inequalityValue_nat_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.ValidInformation.apply_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.rank_entropy_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.rank_entropy_discrete_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.information_rank_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.ValidInformation.validRank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.binary_rank_entropy_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.localEntropy_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.localEntropy_discrete_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.localEntropy_arity_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.jointSubspace_reindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.linearRankRealizes_reindex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.padGroups_castLE": [
+      "propext",
+      "Quot.sound"
+    ],
+    "BoundedArity.padGroups_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.groupProjection_padGroups": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.localRepresentability_le_arity_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.localEntropy_le_arity_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_feasibleAtArity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_rankConstraintsAtArity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_rankFeasibleAtArity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_arity_singleton_real": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.barrier_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.barrier_exists_witness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.AccessStructure.nonempty_participants": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.maxShare_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.maxShareAtMost_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.singleton_le_maxShare": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.IsPolymatroid.nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.IsPolymatroid.maxShare_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_maxShare": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.feasibleShareValues_bddBelow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.rankFeasibleShareValues_bddBelow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_mem_feasibleShareValues": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_mem_rankFeasibleShareValues": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.feasibleShareValues_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.rankFeasibleShareValues_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.relaxationValue_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.rankRelaxationValue_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.relaxation_ceiling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.rank_relaxation_ceiling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.relaxationValue_le_rankRelaxationValue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.six_arity_bound_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.relaxation_ceiling_six": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.rank_relaxation_ceiling_six": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "axiom_policy": "Every reported axiom set is a subset of the allowed axioms.",
+  "proof_placeholders_or_project_axioms_found": false,
+  "unsafe_or_native_decide_declarations_found": false,
+  "prior_proof_modules_count": 32,
+  "prior_proof_modules_unchanged": [
+    "Checkpoint3.lean",
+    "ClauseAccess.lean",
+    "ClauseAssembly.lean",
+    "ClauseAssemblyCount.lean",
+    "ClauseCount.lean",
+    "CoverageBlocks.lean",
+    "CoverageRestore.lean",
+    "DifferenceSpace.lean",
+    "DiscreteEntropy.lean",
+    "DiscreteJointLaw.lean",
+    "EntropyMap.lean",
+    "ExactLocalRepresentation.lean",
+    "FormalTable.lean",
+    "GroupModel.lean",
+    "InformationInequalities.lean",
+    "Interpolation.lean",
+    "LinearObservation.lean",
+    "LinearRank.lean",
+    "LocalContract.lean",
+    "LocalEntropy.lean",
+    "LocalRepresentation.lean",
+    "OneClause.lean",
+    "OneClauseExact.lean",
+    "PairCodegree.lean",
+    "PairCoverage.lean",
+    "PolynomialEvaluation.lean",
+    "RankEntropy.lean",
+    "SecretRank.lean",
+    "TypeInterface.lean",
+    "TypeModel.lean",
+    "TypeModelExact.lean",
+    "UniformEntropy.lean"
+  ],
+  "new_modules": [
+    "ArityRestriction.lean",
+    "Barrier.lean",
+    "RelaxationCeiling.lean"
+  ],
+  "source_sha256": {
+    "BoundedArity/ArityRestriction.lean": "7d5935cc723754f4962639b1a79c0806744d62df3d43fa8e1a20a3557b7b7ae5",
+    "BoundedArity/Barrier.lean": "e11ba24659ae47189029fdc0ada51e90c7023e412e5fa0a1bded22ee52b59467",
+    "BoundedArity/Checkpoint3.lean": "684e21867bdf971e2e8747861175c2694814ac32ffb34c1294b5a81cd7e4a1a7",
+    "BoundedArity/ClauseAccess.lean": "407086b2ec25ca19cfcb271784856977e232ab6290bc88059f0728bfbe351300",
+    "BoundedArity/ClauseAssembly.lean": "71d3ca1bc967e4aaeac3fad9d10b69b3f06d3794000ff36691059132ed33f8d8",
+    "BoundedArity/ClauseAssemblyCount.lean": "df5dc9a53628859bb54da9ac261862543d8dc35f1a8b2d73f5f21b8de50142e9",
+    "BoundedArity/ClauseCount.lean": "fa44d42b2e2297daafdf866a89f9aab3899dac637897ddc5a150edcb838666c9",
+    "BoundedArity/CoverageBlocks.lean": "1bda8c016342cbbad2d25e05de98384e149bf96558d8f2b1ebd6b69f7ea6a5a8",
+    "BoundedArity/CoverageRestore.lean": "9b9e2445931346deb764a3930057a2d8d37741fe3c366e627f7fa8c53ee54a63",
+    "BoundedArity/DifferenceSpace.lean": "30340b0b2e5d7e2ed58cdf63d5751871263f2b5382b41d264d01779e583f99bd",
+    "BoundedArity/DiscreteEntropy.lean": "d538fb966cc4d77ac447e529538ba816189c64ca31630b39d78ffce8de3ad1d7",
+    "BoundedArity/DiscreteJointLaw.lean": "c9275b97465318b6d96d9c6a7684b94df7c5434719752fd536441a619b7d3b49",
+    "BoundedArity/EntropyMap.lean": "c00d63c8c42e78d36293a0b75df204b021863411ee81d130cd12463214a55b9f",
+    "BoundedArity/ExactLocalRepresentation.lean": "056db76423372634df6aa74c8fff7b50fb7742af03aed93df3968db193e9146d",
+    "BoundedArity/FormalTable.lean": "1915f6a87172f2c53594ce5125b050b83fad01d80a47c4f10e6361b76d88e8d6",
+    "BoundedArity/GroupModel.lean": "7d1db962d1a006ee257467132e0ffc285312998a5fe765c253fbaffe8f766409",
+    "BoundedArity/InformationInequalities.lean": "2597fe80f90fe792ce3602ee9b82284752914c12f3da0d7a753842b4acc6077d",
+    "BoundedArity/Interpolation.lean": "844fbc39dabccb4ff35ca353be1c4796bbc406e7e08e8a9e68f4e91561de91e5",
+    "BoundedArity/LinearObservation.lean": "24967192c005536e8f4a993c9466e1912539a23cd2253c382c6224a63aed9c3b",
+    "BoundedArity/LinearRank.lean": "24465f3e21ad8271274940408c6053b4e1bb012ae6f0053443ead42d79b25c14",
+    "BoundedArity/LocalContract.lean": "fdf28750809e336bd7180d202b4557be3bb016b6538bfbe2baeaf75449f48ab8",
+    "BoundedArity/LocalEntropy.lean": "f6b8efd635e10d547f90409fc40c5da12740f0f166c4353af3b2eee8e8d9b8ce",
+    "BoundedArity/LocalRepresentation.lean": "2d8508cecb6ae5c785583cbf985b57c6f0e650c213562127632046271c101cdb",
+    "BoundedArity/OneClause.lean": "863def04751ec12a31b799a54501e491255d3db890bd3f3559a4f0318f1522c0",
+    "BoundedArity/OneClauseExact.lean": "8527403d32cb148f39866fd62b20ef5d7fb6db3a4e2c63e765d6cd62bcb0c199",
+    "BoundedArity/PairCodegree.lean": "f23d0e929e9d202f8431d729ef1908848ac236a2bd5b18c00957d1c4a5a4a531",
+    "BoundedArity/PairCoverage.lean": "3ac5f060186c392f344391f1f3d6e91e653bc222fc0515285ac74fb07a7fd7e8",
+    "BoundedArity/PolynomialEvaluation.lean": "49cf8c7a7e0c8620d01ee8840fde4e31f74ca6f5e324c213ee57dfee3b0c7122",
+    "BoundedArity/RankEntropy.lean": "0d5fea5472ebe6cbe3f39f85bed52ea60e01711d8dfe68d22161502261f50598",
+    "BoundedArity/RelaxationCeiling.lean": "0f56a059705608d6665ef290885460e155ad71952936ad7a63acdaa9669e90c4",
+    "BoundedArity/SecretRank.lean": "e8ecc1abe9730c5e124b6cf5c25c19057c225f03ac3df13fd349a9d1bbbe72e1",
+    "BoundedArity/TypeInterface.lean": "24153ea189a38cc80f7d5d4c8b1c1521ad1ce156ff570b221393afde1276c8ce",
+    "BoundedArity/TypeModel.lean": "985820786e87dc565ba4e0317b9516f56afeeadc06b8edd5a955519722f76d72",
+    "BoundedArity/TypeModelExact.lean": "d84d652a5a6166a7aa22184b52788eff677ec6f13f92820082aac5b1125f72d4",
+    "BoundedArity/UniformEntropy.lean": "de775044476a8011edc10a7dec6dd81a448977b6e742d2410e7f1a2ab2ac76a4",
+    "BoundedArity.lean": "33447ea3bd4b638e0290109db61464df119cc9385ad2dd36edae8ca8356ebd7b",
+    "AxiomAudit.lean": "6a27c4f35bf0fac70d20866e6094c8d1b1bd8ce23d18763d05d2f82015882e21"
+  },
+  "dependency_revisions": {
+    "plausible": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+    "LeanSearchClient": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+    "importGraph": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+    "proofwidgets": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+    "aesop": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+    "Qq": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+    "batteries": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+    "Cli": "50810f72af7618bee62fe9800dc26e806c188703",
+    "mathlib": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+  },
+  "lean_toolchain_sha256": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a",
+  "lake_manifest_sha256": "939332fcae8808be9e3261fa7ce2d3a85193a46b85a03dbdadc1f0d026a9b2ae",
+  "checkpoint_targets": [
+    "BoundedArity.localRepresentability_le_arity_checkpoint",
+    "BoundedArity.localEntropy_le_arity_checkpoint",
+    "BoundedArity.formalTable_feasibleAtArity",
+    "BoundedArity.formalTable_rankConstraintsAtArity",
+    "BoundedArity.barrier_checkpoint",
+    "BoundedArity.barrier_exists_witness",
+    "BoundedArity.maxShareAtMost_iff",
+    "BoundedArity.formalTable_maxShare",
+    "BoundedArity.relaxation_ceiling",
+    "BoundedArity.rank_relaxation_ceiling",
+    "BoundedArity.relaxation_ceiling_six",
+    "BoundedArity.rank_relaxation_ceiling_six"
+  ],
+  "specification_comparison": {
+    "approved_review_sha256": "7f4b0834490e343f9905bfa66891643a998ba272c49f0ae95daf48bb6e44c9b1",
+    "sections": [
+      "E31",
+      "E32",
+      "T8"
+    ],
+    "performed_by": "assistant_with_independent_subagent_review",
+    "status": "matches_approved_mathematical_meanings",
+    "evidence_file": "verification/FINAL_SPECIFICATION.txt",
+    "new_human_approval_claimed": false
+  },
+  "single_explicit_table_fixed_before_all_constraints": true,
+  "witness_chosen_before_every_prescribed_field": true,
+  "all_arities_zero_through_r_included": true,
+  "arbitrary_real_coefficients_and_full_groupings": true,
+  "arbitrary_countable_finite_joint_entropy_validity_domain_preserved": true,
+  "every_field_rank_constraints_without_size_or_characteristic_restrictions": true,
+  "physical_singleton_maximum_attained_and_equal_to_bound": true,
+  "pointwise_bound_equivalent_to_actual_maximum_bound": true,
+  "infimum_sets_proved_nonempty_and_bounded_below": true,
+  "information_and_rank_strengthened_infimum_ceilings_proved": true,
+  "six_variable_six_N_minus_five_proved": true,
+  "remaining_warning": "existing unused DecidableEq P in unauthorizedBit_antitone (FormalTable.lean:161)",
+  "new_module_warnings": [],
+  "remaining_main_targets": [],
+  "optional_extensions_not_claimed": [
+    "Common conditioning from manuscript Appendix B",
+    "Arity growth and counting consequences from manuscript Section 6"
+  ],
+  "alternate_proof_routes_not_required": [
+    "Restriction of scalars and extension-degree transfer",
+    "Alternating-form/dual-code exact clause construction (the same contract is proved by pair differences)"
+  ]
+}

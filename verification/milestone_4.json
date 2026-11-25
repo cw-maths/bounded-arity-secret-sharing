@@ -1,0 +1,174 @@
+{
+  "date": "2026-11-24",
+  "timezone": "Asia/Hong_Kong",
+  "status": "build_and_axiom_audit_passed",
+  "compiler_available_to_assistant": true,
+  "lean_version": "4.36.0",
+  "lean_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+  "platform": "x86_64-unknown-linux-gnu",
+  "mathlib_revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+  "build_jobs": 6406,
+  "build_exit_code": 0,
+  "axiom_audit_exit_code": 0,
+  "audited_declarations": {
+    "BoundedArity.exists_maximalUnauthorized_superset": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.interpolation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clause_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.interpolatedAuthorized_full": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.middle_choose_mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.card_le_middle_choose_of_antichain_subsets": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pair_codegree_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pairCoverage_strict_submodular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.pairCoverage_singleton": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_isPolymatroid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_hasNormalizedAccess": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_singleton": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.formalTable_arity_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.polynomialEvaluation_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.evaluationSpan_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.sum_fin_min_eq_choose_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.clausePairCoverage_eq_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClauseKey_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClauseShare_joint_finrank": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClause_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClause_finiteField_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClause_infiniteField_checkpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "BoundedArity.oneClause_linearRankRealizes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "proof_placeholders_or_project_axioms_found": false,
+  "prior_proof_modules_unchanged": [
+    "Interpolation.lean",
+    "PairCodegree.lean",
+    "PairCoverage.lean",
+    "FormalTable.lean",
+    "Checkpoint3.lean"
+  ],
+  "source_sha256": {
+    "BoundedArity.lean": "fd907b7f454e67c35d2964e891bf6cdf1bb976094c6e41e47a63b5902c8c4255",
+    "AxiomAudit.lean": "408ff4888829641d168e511518098a46f97fd67a08d7f238b04d42b8ca19a7f6",
+    "BoundedArity/Checkpoint3.lean": "684e21867bdf971e2e8747861175c2694814ac32ffb34c1294b5a81cd7e4a1a7",
+    "BoundedArity/ClauseCount.lean": "fa44d42b2e2297daafdf866a89f9aab3899dac637897ddc5a150edcb838666c9",
+    "BoundedArity/FormalTable.lean": "1915f6a87172f2c53594ce5125b050b83fad01d80a47c4f10e6361b76d88e8d6",
+    "BoundedArity/Interpolation.lean": "844fbc39dabccb4ff35ca353be1c4796bbc406e7e08e8a9e68f4e91561de91e5",
+    "BoundedArity/LinearRank.lean": "24465f3e21ad8271274940408c6053b4e1bb012ae6f0053443ead42d79b25c14",
+    "BoundedArity/OneClause.lean": "863def04751ec12a31b799a54501e491255d3db890bd3f3559a4f0318f1522c0",
+    "BoundedArity/PairCodegree.lean": "f23d0e929e9d202f8431d729ef1908848ac236a2bd5b18c00957d1c4a5a4a531",
+    "BoundedArity/PairCoverage.lean": "3ac5f060186c392f344391f1f3d6e91e653bc222fc0515285ac74fb07a7fd7e8",
+    "BoundedArity/PolynomialEvaluation.lean": "49cf8c7a7e0c8620d01ee8840fde4e31f74ca6f5e324c213ee57dfee3b0c7122"
+  },
+  "dependency_revisions": {
+    "plausible": "054b228ce0ac61d767c6e71ba73a24728f191b72",
+    "LeanSearchClient": "4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9",
+    "importGraph": "8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0",
+    "proofwidgets": "2f0f3520daeac2d9310ff25b7a877a0e5cdaa203",
+    "aesop": "66ff77cf0c4c898799e4b94d14db55f7a02d0c5a",
+    "Qq": "ff055a2fcc835935e0ae607339b455a5f5896b4b",
+    "batteries": "b4b25a3886a16daacaf6615c2eea7170a6e8f458",
+    "Cli": "50810f72af7618bee62fe9800dc26e806c188703",
+    "mathlib": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+  },
+  "lean_toolchain_sha256": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a",
+  "lake_manifest_sha256": "939332fcae8808be9e3261fa7ce2d3a85193a46b85a03dbdadc1f0d026a9b2ae"
+}

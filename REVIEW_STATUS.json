@@ -1,0 +1,295 @@
+{
+  "review_document": "bounded_arity_lean_review.pdf",
+  "review_document_sha256": "7f4b0834490e343f9905bfa66891643a998ba272c49f0ae95daf48bb6e44c9b1",
+  "review_document_pages": 35,
+  "specification_review": {
+    "status": "approved_by_user",
+    "date": "2026-11-24",
+    "timezone": "Asia/Hong_Kong",
+    "scope": "All sections marked VERIFY, together with clarifications in this conversation. The assistant compared the E28 implementation with approved prose in milestone 7 and the E31/E32/T8 implementation in milestone 8. See verification/E28_comparison.txt and verification/FINAL_SPECIFICATION.txt. This records implementation correspondence to the existing approval, not a new human review."
+  },
+  "milestone_2": {
+    "status": "axiom_audit_confirmed_by_user",
+    "date": "2026-11-24",
+    "targets": [
+      "BoundedArity.interpolation",
+      "BoundedArity.pair_codegree_le"
+    ],
+    "reported_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "milestone_3": {
+    "status": "build_and_axiom_audit_confirmed_by_user",
+    "revision": 1,
+    "scope": "C11-C17, T3, E32",
+    "compiler_available_to_assistant": false,
+    "verification": {
+      "date": "2026-11-24",
+      "timezone": "Asia/Hong_Kong",
+      "evidence_source": "complete_terminal_output_supplied_by_user",
+      "evidence_file": "verification/milestone_3.txt",
+      "build": "completed_successfully_6398_jobs",
+      "remaining_warning": "unused_DecidableEq_P_in_unauthorizedBit_antitone",
+      "checkpoint_targets": [
+        "BoundedArity.formalTable_checkpoint",
+        "BoundedArity.formalTable_arity_checkpoint"
+      ],
+      "reported_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "sorryAx_or_project_specific_axioms_reported": false,
+      "checked_lean_files_preserved_unchanged": true
+    },
+    "first_user_build": {
+      "date": "2026-11-24",
+      "lean_version": "4.36.0",
+      "pair_coverage": "built_with_unused_simp_argument_warning",
+      "formal_table": "failed_redundant_tactic_and_two_cast_steps",
+      "checkpoint_3": "not_built_because_dependency_failed"
+    },
+    "corrections": [
+      "Remove the tactic after the comparable-set rewrite that already closes its goal.",
+      "Use explicit real-valued goals and Nat.cast_le in FormalTable and Checkpoint3.",
+      "Update the deprecated real-number import and remove reported unused arguments."
+    ],
+    "static_checks": {
+      "approved_definitions_preserved": true,
+      "milestone_2_proof_files_unchanged": true,
+      "toolchain_and_dependency_pins_unchanged": true,
+      "proof_placeholders_or_project_axioms_found": false,
+      "compiler_check": "user_reported_build_and_axiom_audit_passed"
+    }
+  },
+  "milestone_4": {
+    "status": "build_and_axiom_audit_passed_in_assistant_workspace",
+    "date": "2026-11-24",
+    "timezone": "Asia/Hong_Kong",
+    "scope": "D18-D20 and T4, large-field one-clause construction",
+    "compiler_available_to_assistant": true,
+    "lean_version": "4.36.0",
+    "mathlib_revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+    "build_jobs": 6406,
+    "build_exit_code": 0,
+    "axiom_audit_exit_code": 0,
+    "checkpoint_targets": [
+      "BoundedArity.oneClause_checkpoint",
+      "BoundedArity.oneClause_finiteField_checkpoint",
+      "BoundedArity.oneClause_infiniteField_checkpoint",
+      "BoundedArity.oneClause_linearRankRealizes"
+    ],
+    "reported_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "proof_placeholders_or_project_axioms_found": false,
+    "milestone_1_3_proof_modules_unchanged": true,
+    "toolchain_and_dependency_pins_unchanged": true,
+    "evidence_files": [
+      "verification/milestone_4.txt",
+      "verification/milestone_4.json"
+    ],
+    "remaining_targets": [
+      "T5",
+      "T6",
+      "T7",
+      "T8",
+      "T6 exact every-field variant"
+    ]
+  },
+  "milestone_5": {
+    "status": "build_and_axiom_audit_passed_in_assistant_workspace",
+    "date": "2026-11-24",
+    "timezone": "Asia/Hong_Kong",
+    "scope": "D21-D23 and T5: clause assembly and full-table linear representation",
+    "compiler_available_to_assistant": true,
+    "lean_version": "4.36.0",
+    "mathlib_revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+    "build_jobs": 6416,
+    "build_exit_code": 0,
+    "axiom_audit_exit_code": 0,
+    "checkpoint_targets": [
+      "BoundedArity.clauseAssembly_checkpoint",
+      "BoundedArity.clauseAssembly_formalTable_checkpoint",
+      "BoundedArity.clauseAssembly_finiteField_formalTable",
+      "BoundedArity.clauseAssembly_infiniteField_formalTable"
+    ],
+    "reported_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "proof_placeholders_or_project_axioms_found": false,
+    "milestone_1_4_proof_modules_unchanged": true,
+    "toolchain_and_dependency_pins_unchanged": true,
+    "evidence_files": [
+      "verification/milestone_5.txt",
+      "verification/milestone_5.json"
+    ],
+    "remaining_targets": [
+      "T6",
+      "T7",
+      "T8",
+      "T6 exact every-field variant"
+    ]
+  },
+  "milestone_6": {
+    "status": "build_and_axiom_audit_passed_in_assistant_workspace",
+    "date": "2026-11-24",
+    "timezone": "Asia/Hong_Kong",
+    "scope": "D24-D26, E27, and complete T6: large-field and exact every-field local representation",
+    "compiler_available_to_assistant": true,
+    "lean_version": "4.36.0",
+    "mathlib_revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+    "build_jobs": 6436,
+    "build_exit_code": 0,
+    "axiom_audit_exit_code": 0,
+    "checkpoint_targets": [
+      "BoundedArity.oneClause_exact_checkpoint",
+      "BoundedArity.localGroupRealizes_checkpoint",
+      "BoundedArity.localRepresentability_checkpoint",
+      "BoundedArity.localRepresentability_arity_checkpoint"
+    ],
+    "reported_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "audited_declarations_count": 62,
+    "proof_placeholders_or_project_axioms_found": false,
+    "milestone_1_5_proof_modules_unchanged": true,
+    "toolchain_and_dependency_pins_unchanged": true,
+    "large_field_route_complete": true,
+    "exact_every_field_route_complete": true,
+    "same_model_physical_secret_and_full_group_ranks": true,
+    "proof_route_note": "The exact one-clause contract is proved by pair-coordinate differences and a common key. The alternating-form and dual-code intermediate construction is unnecessary for this proof; the approved theorem statement is unchanged.",
+    "evidence_files": [
+      "verification/milestone_6.txt",
+      "verification/milestone_6.json"
+    ],
+    "remaining_targets": [
+      "T7",
+      "T8"
+    ]
+  },
+  "milestone_7": {
+    "status": "build_and_axiom_audit_passed_in_assistant_workspace",
+    "date": "2026-11-24",
+    "timezone": "Asia/Hong_Kong",
+    "scope": "E28-E29, E30 validity definition, T7 finite-field rank-to-entropy and positive scaling, and exact entropy witnesses for T6 projections",
+    "compiler_available_to_assistant": true,
+    "lean_version": "4.36.0",
+    "mathlib_revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+    "build_jobs": 7452,
+    "build_exit_code": 0,
+    "axiom_audit_exit_code": 0,
+    "audited_declarations_count": 104,
+    "reported_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "proof_placeholders_or_project_axioms_found": false,
+    "milestone_1_6_proof_modules_unchanged": true,
+    "prior_proof_modules_count": 24,
+    "toolchain_and_dependency_pins_unchanged": true,
+    "checkpoint_targets": [
+      "BoundedArity.rank_entropy_checkpoint",
+      "BoundedArity.rank_entropy_discrete_checkpoint",
+      "BoundedArity.information_rank_checkpoint",
+      "BoundedArity.ValidInformation.validRank",
+      "BoundedArity.binary_rank_entropy_checkpoint",
+      "BoundedArity.localEntropy_checkpoint",
+      "BoundedArity.localEntropy_discrete_checkpoint",
+      "BoundedArity.localEntropy_arity_checkpoint"
+    ],
+    "e28_implementation_compared_with_approved_prose": true,
+    "e28_comparison_performed_by": "assistant",
+    "countable_alphabet_validity_domain_preserved": true,
+    "finite_full_joint_entropy_implies_finite_marginals_proved": true,
+    "one_common_finite_joint_law_before_all_coalitions": true,
+    "rank_entropy_and_positive_scaling_proved": true,
+    "exact_binary_entropy_and_local_projection_corollaries_proved": true,
+    "restriction_of_scalars_transfer_implemented": false,
+    "restriction_of_scalars_note": "Not required by the exact every-field T6 route. No extension-degree theorem is claimed in this milestone.",
+    "evidence_files": [
+      "verification/milestone_7.txt",
+      "verification/milestone_7.json",
+      "verification/E28_comparison.txt"
+    ],
+    "remaining_targets": [
+      "T8"
+    ]
+  },
+  "milestone_8": {
+    "status": "build_and_axiom_audit_passed_in_assistant_workspace",
+    "date": "2026-11-24",
+    "timezone": "Asia/Hong_Kong",
+    "scope": "E31, E32, T8: single fixed table; all information inequalities and prescribed-field rank constraints at arity at most r; exact maximum objective and both infimum ceilings",
+    "compiler_available_to_assistant": true,
+    "lean_version": "4.36.0",
+    "mathlib_revision": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+    "build_jobs": 7458,
+    "build_exit_code": 0,
+    "axiom_audit_exit_code": 0,
+    "audited_declarations_count": 138,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "every_reported_axiom_set_is_a_subset": true,
+    "proof_placeholders_or_project_axioms_found": false,
+    "milestone_1_7_proof_modules_unchanged": true,
+    "prior_proof_modules_count": 32,
+    "toolchain_and_dependency_pins_unchanged": true,
+    "checkpoint_targets": [
+      "BoundedArity.localRepresentability_le_arity_checkpoint",
+      "BoundedArity.localEntropy_le_arity_checkpoint",
+      "BoundedArity.formalTable_feasibleAtArity",
+      "BoundedArity.formalTable_rankConstraintsAtArity",
+      "BoundedArity.barrier_checkpoint",
+      "BoundedArity.barrier_exists_witness",
+      "BoundedArity.maxShareAtMost_iff",
+      "BoundedArity.formalTable_maxShare",
+      "BoundedArity.relaxation_ceiling",
+      "BoundedArity.rank_relaxation_ceiling",
+      "BoundedArity.relaxation_ceiling_six",
+      "BoundedArity.rank_relaxation_ceiling_six"
+    ],
+    "all_arities_including_zero_and_one": true,
+    "single_table_before_all_fields_inequalities_and_groupings": true,
+    "actual_maximum_and_pointwise_equivalence_proved": true,
+    "nonempty_bounded_below_infimum_domains_proved": true,
+    "information_and_rank_strengthened_infimum_ceilings_proved": true,
+    "six_variable_bound_six_N_minus_five_proved": true,
+    "evidence_files": [
+      "verification/milestone_8.txt",
+      "verification/milestone_8.json",
+      "verification/FINAL_SPECIFICATION.txt"
+    ],
+    "remaining_targets": []
+  },
+  "main_formalization": {
+    "status": "complete_T1_through_T8",
+    "date": "2026-11-24",
+    "timezone": "Asia/Hong_Kong",
+    "specification_status": "all_VERIFY_sections_approved_by_user_in_prior_conversation",
+    "implementation_comparison": "assistant_compared_completed_interfaces_with_approved_specification",
+    "verification": "full_build_and_transitive_axiom_audit_passed",
+    "user_local_milestone_8_build": "not_yet_reported",
+    "optional_extensions_outside_main_scope": [
+      "Common conditioning from manuscript Appendix B",
+      "Arity growth and counting consequences from manuscript Section 6"
+    ],
+    "alternate_routes_not_needed": [
+      "Restriction of scalars and extension-degree transfer",
+      "Alternating-form/dual-code exact clause construction (the same contract is proved by pair differences)"
+    ]
+  }
+}

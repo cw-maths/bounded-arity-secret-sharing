@@ -1,0 +1,92 @@
+E28 implementation comparison — milestone 7
+Compared by the assistant on 24 November 2026 with the user's approved
+35-page review packet (SHA256:
+7f4b0834490e343f9905bfa66891643a998ba272c49f0ae95daf48bb6e44c9b1).
+This records correspondence to that approval; it does not claim a new human
+review of the implementation. All theorem names below are in BoundedArity.
+
+SPECIFICATION CORRESPONDENCE
+
+1. Arbitrary countable alphabets.
+   DiscreteJointLaw contains Alphabet : G -> Type v, together with a proof
+   Countable (Alphabet j) for every j. The alphabets are data chosen with
+   the law; no particular alphabet is fixed. Label and alphabet universes
+   are independent. IsDiscreteEntropyTable has no finite-alphabet condition.
+
+2. One joint probability mass function.
+   The pmf field is PMF ((j : G) -> Alphabet j). A PMF includes a proof that
+   its nonnegative masses sum to one. The existential quantifier over this
+   one law precedes the universal quantifier over all coalitions.
+
+3. Marginals of that same law.
+   DiscreteJointLaw.marginal I is the pushforward of law.pmf by coordinate
+   restriction to I. There is no independently chosen law for each I.
+
+4. Base-two Shannon entropy, with 0 log 0 = 0.
+   pmfEntropyTerm is the extended nonnegative real value of
+   Real.negMulLog(p.toReal) / Real.log 2. Real.negMulLog is -p log p.
+   The zero summand is proved to be zero. pmf_entropy_summand_nonneg proves
+   genuine PMF summands are nonnegative, so ENNReal.ofReal clips nothing.
+   pmfEntropy is the extended sum of these contributions, possibly infinity.
+
+5. Finiteness of full joint entropy.
+   law.FiniteJointEntropy is exactly pmfEntropy law.pmf != infinity.
+   finiteJointEntropy_iff_univ proves equivalence with finiteness of the
+   full marginal. It is not a finite-support or finite-alphabet condition.
+
+6. Real table entries are justified by that finiteness condition.
+   pmfEntropy_map_le proves deterministic observation cannot increase entropy,
+   including infinite entropy. jointEntropyENN_ne_top deduces finiteness for
+   every marginal from finite full-joint entropy. jointEntropy_hasSum proves
+   the real entry equals the convergent Shannon series. Lean's real conversion
+   is a total function, but IsDiscreteEntropyTable explicitly requires finite
+   full-joint entropy and these theorems justify every use as real entropy.
+
+7. Empty-tuple entropy.
+   jointEntropy_empty and IsDiscreteEntropyTable.empty prove the empty entry
+   is zero. It follows from the unique empty tuple, not an additional axiom.
+
+8. Finite witnesses within the approved broader domain.
+   IsFiniteEntropyTable adds finite alphabets to the same one-law contract.
+   IsFiniteEntropyTable.isDiscreteEntropyTable proves such witnesses belong
+   to the full approved countable-alphabet domain. T7 constructs finite
+   witnesses; ValidInformation continues to quantify over the broader domain.
+
+E29 AND E30 CORRESPONDENCE
+
+inequalityValue is exactly the finite sum of a(I)*h(I) over all subsets I of G.
+Coefficients are arbitrary real numbers. There is no additive constant.
+ValidInformation quantifies over every IsDiscreteEntropyTable in the selected
+alphabet universe. ValidRank K quantifies over every table with the previously
+approved LinearRankRealizes K representation. These are the E29 and E30
+validity definitions, with explicit universe parameters.
+
+T7 STATEMENT AND PROVED DEPENDENCIES
+
+rank_entropy_checkpoint constructs one finite joint law whose entries are
+    H(Z_I) = g(I) * (log |K| / log 2)
+for all coalitions I. The proof uses the uniform law on the dual of the
+ambient coordinate space; each label observes the functional restricted to
+its subspace. The kernel is the annihilator of the sum of those subspaces,
+so the joint observation rank is g(I). Linear fibers have equal size, the
+image has |K|^g(I) elements, and its uniform entropy is g(I)*log_2|K|.
+These probability, fiber-count, dimension, and entropy facts are proved.
+
+finiteField_entropyScale_pos proves log_2|K| > 0. Homogeneous scaling is
+proved in InformationInequalities.lean and used by information_rank_checkpoint.
+Over F_2 the common factor is exactly 1; binary_rank_entropy_checkpoint and
+localEntropy_checkpoint give exact entropy tables in bits for T6 projections.
+The grouping is fixed before its common witness law is chosen. Different
+groupings may have different witness laws.
+
+All 42 newly audited declarations, and all 62 earlier audited declarations,
+use only propext, Classical.choice, and Quot.sound. No project axiom or proof
+placeholder supplies any probability or entropy fact.
+
+The optional restriction-of-scalars proof route in the explanatory portion
+of E30 is unnecessary because T6 is already exact over every field. This
+milestone does not claim an implementation of that extension-degree theorem.
+
+T8, which assembles the final arity-at-most-r barrier and objective bound,
+remains to be implemented. The approved definitions and theorem statements
+have not been weakened.

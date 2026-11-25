@@ -1,0 +1,80 @@
+MILESTONE 3 VERIFICATION RECORD
+Date: 24 November 2026 (Asia/Hong_Kong)
+Evidence: terminal output supplied by the user in the project conversation.
+No independent assistant-side compiler run was performed.
+
+The source revision was the corrected milestone-3 archive with SHA-256:
+d0c65f6d8721bb0459784bc7e3f1d5eb8216960c00f8c582ddebb6368650752d
+All Lean source files in this recorded baseline are unchanged from it.
+
+USER-REPORTED BUILD
+
+chris@Christophers-MacBook-Pro-2 bounded_arity_lean % lake build
+⚠ [6392/6398] Built BoundedArity.FormalTable
+warning: BoundedArity/FormalTable.lean:161:0: automatically included section variable(s) unused in theorem `BoundedArity.unauthorizedBit_antitone`:
+  [DecidableEq P]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq P] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Build completed successfully (6398 jobs).
+
+USER-REPORTED AXIOM AUDIT
+
+chris@Christophers-MacBook-Pro-2 bounded_arity_lean % lake env lean AxiomAudit.lean
+BoundedArity.interpolation.{u_1, u_2} {P : Type u_1} {G : Type u_2} [Fintype P] [Fintype G] [DecidableEq P]
+  [DecidableEq G] (B : G → Finset P) (Γ : BoundedArity.AccessStructure P) (J : Finset G) :
+  BoundedArity.InterpolatedAuthorized B Γ (BoundedArity.visibleTypes B J) ↔
+    Γ.Authorized (BoundedArity.physicalUnion B J)
+'BoundedArity.exists_maximalUnauthorized_superset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.interpolation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.clause_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.interpolatedAuthorized_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+BoundedArity.pair_codegree_le.{u_1, u_2} {P : Type u_1} {G : Type u_2} [Fintype P] [Fintype G] [DecidableEq P]
+  [DecidableEq G] (B : G → Finset P) (Γ : BoundedArity.AccessStructure P) {t u : Finset G}
+  (ht : t ∈ BoundedArity.occurringTypes B) (hu : u ∈ BoundedArity.occurringTypes B) (hne : t ≠ u) :
+  (BoundedArity.clausesContainingPair B Γ t u).card ≤ (Fintype.card G - 2).choose ((Fintype.card G - 2) / 2)
+'BoundedArity.middle_choose_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.card_le_middle_choose_of_antichain_subsets' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.pair_codegree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+BoundedArity.pairCoverage_singleton.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P] (p : P) :
+  BoundedArity.pairCoverage {p} = Fintype.card P - 1
+'BoundedArity.pairCoverage_strict_submodular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.pairCoverage_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+BoundedArity.formalTable_isPolymatroid.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P]
+  (Γ : BoundedArity.AccessStructure P) (b : ℕ) (hb : 1 ≤ b) :
+  BoundedArity.IsPolymatroid fun X => ↑(BoundedArity.formalTable Γ b X)
+BoundedArity.formalTable_hasNormalizedAccess.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P]
+  (Γ : BoundedArity.AccessStructure P) (b : ℕ) :
+  BoundedArity.HasNormalizedAccess Γ fun X => ↑(BoundedArity.formalTable Γ b X)
+BoundedArity.formalTable_singleton.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P] (Γ : BoundedArity.AccessStructure P)
+  (b : ℕ) (p : P) : BoundedArity.formalTable Γ b {some p} = 1 + b * (Fintype.card P - 1)
+BoundedArity.formalTable_checkpoint.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P]
+  (Γ : BoundedArity.AccessStructure P) (b : ℕ) (hb : 1 ≤ b) :
+  (BoundedArity.IsPolymatroid fun X => ↑(BoundedArity.formalTable Γ b X)) ∧
+    (BoundedArity.HasNormalizedAccess Γ fun X => ↑(BoundedArity.formalTable Γ b X)) ∧
+      (∀ (p : P), BoundedArity.formalTable Γ b {some p} = 1 + b * (Fintype.card P - 1)) ∧
+        BoundedArity.MaxShareAtMost (fun X => ↑(BoundedArity.formalTable Γ b X)) ↑(1 + b * (Fintype.card P - 1))
+BoundedArity.formalTable_arity_checkpoint.{u_1} {P : Type u_1} [Fintype P] [DecidableEq P]
+  (Γ : BoundedArity.AccessStructure P) (r : ℕ) :
+  (BoundedArity.IsPolymatroid fun X => ↑(BoundedArity.formalTable Γ (BoundedArity.arityConstant r) X)) ∧
+    (BoundedArity.HasNormalizedAccess Γ fun X => ↑(BoundedArity.formalTable Γ (BoundedArity.arityConstant r) X)) ∧
+      BoundedArity.MaxShareAtMost (fun X => ↑(BoundedArity.formalTable Γ (BoundedArity.arityConstant r) X))
+        ↑(1 + BoundedArity.arityConstant r * (Fintype.card P - 1))
+'BoundedArity.formalTable_isPolymatroid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.formalTable_hasNormalizedAccess' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.formalTable_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.formalTable_checkpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundedArity.formalTable_arity_checkpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+SIGNOFF SCOPE
+
+T1 and T2 remain checked. T3 now has a successful build and clean axiom audit.
+For every finite participant type P, proper monotone access structure Γ,
+and natural b ≥ 1, the fixed formal table is a normalised polymatroid with
+all required access equalities and physical singleton values exactly
+1 + b * (Fintype.card P - 1). The arity-coefficient corollary is included.
+
+T4 and later local-representation, rank-to-entropy, and final barrier
+checkpoints are pending. The arity-coefficient corollary alone does not
+prove feasibility for all bounded-arity information or rank inequalities.

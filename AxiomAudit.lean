@@ -1,0 +1,249 @@
+module
+
+import BoundedArity
+
+/-! Run with `lake env lean AxiomAudit.lean` after `lake build`.
+The commands print the formal target and the logical axioms used by the
+completed results. None should depend on `sorryAx` or a project-specific axiom.
+-/
+
+#check BoundedArity.interpolation
+#print axioms BoundedArity.exists_maximalUnauthorized_superset
+#print axioms BoundedArity.interpolation
+#print axioms BoundedArity.clause_nonempty
+#print axioms BoundedArity.interpolatedAuthorized_full
+
+#check BoundedArity.pair_codegree_le
+#print axioms BoundedArity.middle_choose_mono
+#print axioms BoundedArity.card_le_middle_choose_of_antichain_subsets
+#print axioms BoundedArity.pair_codegree_le
+
+-- Milestone 3: these declarations must compile before the new checkpoint
+-- can be described as verified. The audit includes its transitive axioms.
+#check BoundedArity.pairCoverage_singleton
+#print axioms BoundedArity.pairCoverage_strict_submodular
+#print axioms BoundedArity.pairCoverage_singleton
+
+#check BoundedArity.formalTable_isPolymatroid
+#check BoundedArity.formalTable_hasNormalizedAccess
+#check BoundedArity.formalTable_singleton
+#check BoundedArity.formalTable_checkpoint
+#check BoundedArity.formalTable_arity_checkpoint
+#print axioms BoundedArity.formalTable_isPolymatroid
+#print axioms BoundedArity.formalTable_hasNormalizedAccess
+#print axioms BoundedArity.formalTable_singleton
+#print axioms BoundedArity.formalTable_checkpoint
+#print axioms BoundedArity.formalTable_arity_checkpoint
+
+-- Milestone 4: inspect the one-clause contract and its transitive axioms.
+#check BoundedArity.LinearRankRealizes
+#check BoundedArity.polynomialEvaluation_finrank
+#check BoundedArity.evaluationSpan_finrank
+#check BoundedArity.sum_fin_min_eq_choose_sub
+#print BoundedArity.OneClauseRealizes
+#check BoundedArity.oneClause_checkpoint
+#check BoundedArity.oneClause_finiteField_checkpoint
+#check BoundedArity.oneClause_infiniteField_checkpoint
+#check BoundedArity.oneClause_linearRankRealizes
+#print axioms BoundedArity.polynomialEvaluation_finrank
+#print axioms BoundedArity.evaluationSpan_finrank
+#print axioms BoundedArity.sum_fin_min_eq_choose_sub
+#print axioms BoundedArity.clausePairCoverage_eq_card
+#print axioms BoundedArity.oneClauseKey_finrank
+#print axioms BoundedArity.oneClauseShare_joint_finrank
+#print axioms BoundedArity.oneClause_checkpoint
+#print axioms BoundedArity.oneClause_finiteField_checkpoint
+#print axioms BoundedArity.oneClause_infiniteField_checkpoint
+#print axioms BoundedArity.oneClause_linearRankRealizes
+
+-- Milestone 5: common clause model, physical/secret ranks, and the full table.
+#check BoundedArity.HitsAll
+#check BoundedArity.clausePairCount
+#check BoundedArity.paddingCount
+#print BoundedArity.ClauseAssemblyRealizes
+#check BoundedArity.clauseAssembly_pair_rank_sum
+#check BoundedArity.assemblySecret_mem_joint_iff
+#check BoundedArity.clauseAssembly_checkpoint
+#check BoundedArity.clauseAssembly_finiteField_checkpoint
+#check BoundedArity.clauseAssembly_infiniteField_checkpoint
+#check BoundedArity.clauseAssembly_formalTable_checkpoint
+#check BoundedArity.clauseAssembly_finiteField_formalTable
+#check BoundedArity.clauseAssembly_infiniteField_formalTable
+#print axioms BoundedArity.clauseAssembly_pair_rank_sum
+#print axioms BoundedArity.clauseVectorModel_of_oneClause
+#print axioms BoundedArity.finrank_secret_sup
+#print axioms BoundedArity.jointSubspace_withSecret
+#print axioms BoundedArity.assemblySecret_mem_joint_iff
+#print axioms BoundedArity.assemblySecret_ne_zero
+#print axioms BoundedArity.assembly_physical_rank
+#print axioms BoundedArity.assembly_secret_rank
+#print axioms BoundedArity.clauseAssembly_checkpoint
+#print axioms BoundedArity.clauseAssembly_finiteField_checkpoint
+#print axioms BoundedArity.clauseAssembly_infiniteField_checkpoint
+#print axioms BoundedArity.clauseAssembly_formalTable_checkpoint
+#print axioms BoundedArity.clauseAssembly_finiteField_formalTable
+#print axioms BoundedArity.clauseAssembly_infiniteField_formalTable
+
+-- Milestone 6: exact local representations over every prescribed field.
+#check BoundedArity.groupProjection
+#print BoundedArity.PhysicalGroupRealizes
+#print BoundedArity.LocalGroupRealizes
+#check BoundedArity.oneClause_exact_checkpoint
+#check BoundedArity.typeModel_everyField
+#check BoundedArity.retainedCount_linearlyRepresentable
+#check BoundedArity.type_coverage_restore
+#check BoundedArity.localRepresentability_finiteField_checkpoint
+#check BoundedArity.localRepresentability_infiniteField_checkpoint
+#check BoundedArity.localGroupRealizes_checkpoint
+#check BoundedArity.localRepresentability_checkpoint
+#check BoundedArity.localGroupRealizes_arity_checkpoint
+#check BoundedArity.localRepresentability_arity_checkpoint
+#print axioms BoundedArity.differenceSpace_finrank_add_one
+#print axioms BoundedArity.jointSubspace_pairDifferences
+#print axioms BoundedArity.exactClause_joint_finrank
+#print axioms BoundedArity.oneClause_exact_checkpoint
+#print axioms BoundedArity.occurringType_card_le
+#print axioms BoundedArity.hitsAll_typeClauses_visible_iff
+#print axioms BoundedArity.type_clauses_pair_count_le
+#print axioms BoundedArity.typeModel_everyField
+#print axioms BoundedArity.physicalTable_restore
+#print axioms BoundedArity.retainedShares_joint_finrank
+#print axioms BoundedArity.typeRepresentative_injective
+#print axioms BoundedArity.type_coverage_restore
+#print axioms BoundedArity.jointSubspace_biUnion
+#print axioms BoundedArity.jointSubspace_fullGroupSpace
+#print axioms BoundedArity.physicalGroupRealizes_of_typeModel
+#print axioms BoundedArity.physicalGroupRealizes_of_unauthorized
+#print axioms BoundedArity.physicalGroupRealizes_finiteField
+#print axioms BoundedArity.physicalGroupRealizes_infiniteField
+#print axioms BoundedArity.localRepresentability_finiteField_checkpoint
+#print axioms BoundedArity.localRepresentability_infiniteField_checkpoint
+#print axioms BoundedArity.localGroupRealizes_checkpoint
+#print axioms BoundedArity.localRepresentability_checkpoint
+#print axioms BoundedArity.localGroupRealizes_arity_checkpoint
+#print axioms BoundedArity.localRepresentability_arity_checkpoint
+
+-- Milestone 7: approved countable entropy domain, a genuine common joint law,
+-- finite-field rank-to-entropy, and positive homogeneous scaling.
+#print BoundedArity.DiscreteJointLaw
+#print BoundedArity.DiscreteJointLaw.FiniteJointEntropy
+#print BoundedArity.IsDiscreteEntropyTable
+#print BoundedArity.IsFiniteEntropyTable
+#print BoundedArity.inequalityValue
+#print BoundedArity.ValidInformation
+#print BoundedArity.ValidRank
+#check BoundedArity.DiscreteJointLaw.jointEntropyENN_ne_top
+#check BoundedArity.DiscreteJointLaw.jointEntropy_hasSum
+#check BoundedArity.pmfEntropyReal_map_uniform_linearMap
+#check BoundedArity.observationJointMap_finrank
+#check BoundedArity.rank_entropy_checkpoint
+#check BoundedArity.rank_entropy_discrete_checkpoint
+#check BoundedArity.information_rank_checkpoint
+#check BoundedArity.ValidInformation.validRank
+#check BoundedArity.binary_rank_entropy_checkpoint
+#check BoundedArity.localEntropy_checkpoint
+#check BoundedArity.localEntropy_discrete_checkpoint
+#check BoundedArity.localEntropy_arity_checkpoint
+#print axioms BoundedArity.pmf_entropy_summand_nonneg
+#print axioms BoundedArity.pmfEntropyTerm_toReal
+#print axioms BoundedArity.pmfEntropy_ne_top
+#print axioms BoundedArity.pmfEntropyReal_eq_sum
+#print axioms BoundedArity.pmfEntropyReal_hasSum
+#print axioms BoundedArity.pmfEntropyReal_eq_tsum
+#print axioms BoundedArity.pmfEntropy_map_eq_weighted_sum
+#print axioms BoundedArity.pmfEntropy_map_le
+#print axioms BoundedArity.pmfEntropy_map_ne_top
+#print axioms BoundedArity.pmfEntropy_map_of_leftInverse
+#print axioms BoundedArity.DiscreteJointLaw.finiteJointEntropy_iff_univ
+#print axioms BoundedArity.DiscreteJointLaw.jointEntropyENN_le_full
+#print axioms BoundedArity.DiscreteJointLaw.jointEntropyENN_ne_top
+#print axioms BoundedArity.DiscreteJointLaw.jointEntropy_hasSum
+#print axioms BoundedArity.DiscreteJointLaw.jointEntropy_eq_tsum
+#print axioms BoundedArity.DiscreteJointLaw.finiteJointEntropy_of_finite
+#print axioms BoundedArity.DiscreteJointLaw.jointEntropy_empty
+#print axioms BoundedArity.IsFiniteEntropyTable.isDiscreteEntropyTable
+#print axioms BoundedArity.IsDiscreteEntropyTable.empty
+#print axioms BoundedArity.map_uniformPMF_apply
+#print axioms BoundedArity.pmfEntropyReal_uniformPMF
+#print axioms BoundedArity.linear_fibre_card
+#print axioms BoundedArity.map_uniformPMF_linear_toReal
+#print axioms BoundedArity.pmfEntropyReal_map_uniform_linear_log
+#print axioms BoundedArity.pmfEntropyReal_map_uniform_linearMap
+#print axioms BoundedArity.finiteField_entropyScale_pos
+#print axioms BoundedArity.observationJointMap_ker
+#print axioms BoundedArity.observationJointMap_finrank
+#print axioms BoundedArity.observationJointMap_natCard_range
+#print axioms BoundedArity.inequalityValue_smul
+#print axioms BoundedArity.inequalityValue_smul_nonneg_iff
+#print axioms BoundedArity.inequalityValue_nonneg_of_scaled
+#print axioms BoundedArity.inequalityValue_nat_mul
+#print axioms BoundedArity.ValidInformation.apply_finite
+#print axioms BoundedArity.rank_entropy_checkpoint
+#print axioms BoundedArity.rank_entropy_discrete_checkpoint
+#print axioms BoundedArity.information_rank_checkpoint
+#print axioms BoundedArity.ValidInformation.validRank
+#print axioms BoundedArity.binary_rank_entropy_checkpoint
+#print axioms BoundedArity.localEntropy_checkpoint
+#print axioms BoundedArity.localEntropy_discrete_checkpoint
+#print axioms BoundedArity.localEntropy_arity_checkpoint
+
+-- Milestone 8: the reviewed single-table barrier, every smaller arity,
+-- the actual maximum-share objective, and both infimum ceilings.
+#print BoundedArity.FeasibleAtArity
+#print BoundedArity.RankConstraintsAtArity
+#print BoundedArity.RankFeasibleAtArity
+#print BoundedArity.MaxShareAtMost
+#print BoundedArity.maxShare
+#print BoundedArity.FeasibleShareValues
+#print BoundedArity.relaxationValue
+#print BoundedArity.RankFeasibleShareValues
+#print BoundedArity.rankRelaxationValue
+#check BoundedArity.localRepresentability_le_arity_checkpoint
+#check BoundedArity.localEntropy_le_arity_checkpoint
+#check BoundedArity.formalTable_feasibleAtArity
+#check BoundedArity.formalTable_rankConstraintsAtArity
+#check BoundedArity.barrier_checkpoint
+#check BoundedArity.barrier_exists_witness
+#check BoundedArity.maxShare_attained
+#check BoundedArity.maxShareAtMost_iff
+#check BoundedArity.formalTable_maxShare
+#check BoundedArity.relaxation_ceiling
+#check BoundedArity.rank_relaxation_ceiling
+#check BoundedArity.relaxationValue_le_rankRelaxationValue
+#check BoundedArity.six_arity_bound_eq
+#check BoundedArity.relaxation_ceiling_six
+#check BoundedArity.rank_relaxation_ceiling_six
+#print axioms BoundedArity.jointSubspace_reindex
+#print axioms BoundedArity.linearRankRealizes_reindex
+#print axioms BoundedArity.padGroups_castLE
+#print axioms BoundedArity.padGroups_union
+#print axioms BoundedArity.groupProjection_padGroups
+#print axioms BoundedArity.localRepresentability_le_arity_checkpoint
+#print axioms BoundedArity.localEntropy_le_arity_checkpoint
+#print axioms BoundedArity.formalTable_feasibleAtArity
+#print axioms BoundedArity.formalTable_rankConstraintsAtArity
+#print axioms BoundedArity.formalTable_rankFeasibleAtArity
+#print axioms BoundedArity.formalTable_arity_singleton_real
+#print axioms BoundedArity.barrier_checkpoint
+#print axioms BoundedArity.barrier_exists_witness
+#print axioms BoundedArity.AccessStructure.nonempty_participants
+#print axioms BoundedArity.maxShare_attained
+#print axioms BoundedArity.maxShareAtMost_iff
+#print axioms BoundedArity.singleton_le_maxShare
+#print axioms BoundedArity.IsPolymatroid.nonneg
+#print axioms BoundedArity.IsPolymatroid.maxShare_nonneg
+#print axioms BoundedArity.formalTable_maxShare
+#print axioms BoundedArity.feasibleShareValues_bddBelow
+#print axioms BoundedArity.rankFeasibleShareValues_bddBelow
+#print axioms BoundedArity.formalTable_mem_feasibleShareValues
+#print axioms BoundedArity.formalTable_mem_rankFeasibleShareValues
+#print axioms BoundedArity.feasibleShareValues_nonempty
+#print axioms BoundedArity.rankFeasibleShareValues_nonempty
+#print axioms BoundedArity.relaxationValue_nonneg
+#print axioms BoundedArity.rankRelaxationValue_nonneg
+#print axioms BoundedArity.relaxation_ceiling
+#print axioms BoundedArity.rank_relaxation_ceiling
+#print axioms BoundedArity.relaxationValue_le_rankRelaxationValue
+#print axioms BoundedArity.six_arity_bound_eq
+#print axioms BoundedArity.relaxation_ceiling_six
+#print axioms BoundedArity.rank_relaxation_ceiling_six
