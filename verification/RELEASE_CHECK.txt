@@ -1,0 +1,75 @@
+Repository review snapshot 0.8.1 — observed verification
+Date: 25 November 2026 (Asia/Hong_Kong)
+Status: ALL REQUIRED LOCAL CHECKS PASSED.
+
+This is a private review preparation of verified milestone 8. No GitHub
+repository has been created or uploaded by this preparation, and the included
+GitHub Actions workflow has not yet run on GitHub. No independent external
+mathematical review is claimed. No expository-paper files were changed.
+
+SOURCE AND ENVIRONMENT
+Baseline archive SHA-256:
+  0fef89248ff1d7110cddb93abeb0e0dd92df47cb66569122f448138472e1ed78
+Checked proof/tooling revision:
+  41c8ea6094da2b5ebe6d13902c71fc95769b3dd9
+Subsequent commits add documentation and these verification records only.
+Exact checked file hashes and all dependency revisions: release_sources.json.
+Lean: leanprover/lean4:v4.36.0
+Lean executable commit: 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9
+mathlib: fc4f59e577feb1a4956671bc04ac18aaaf8cd842
+Host used for this check: Linux x86_64.
+
+The project was extracted from the retained milestone archive, without old
+project build outputs. Dependencies were fetched using the committed manifest
+and the corresponding mathlib cache. The verification script then removed
+only this project's .lake/build and rebuilt its sources.
+
+COMMANDS
+  lake exe cache get
+  bash scripts/verify.sh --fresh-build
+The full verification command returned exit code 0. The build was run with
+LEAN_NUM_THREADS=2 in this workspace; the script fixes replay to one thread.
+
+OBSERVED RESULTS
+1. lake --wfail build BoundedArity
+   PASS; 7458 jobs; zero warnings; zero errors.
+2. lake env lean -DwarningAsError=true AxiomAudit.lean
+   PASS; 138 selected declarations report transitive axiom dependencies.
+3. Official axiom-audit v0.1.2, commit
+   46024e005996495c65ef609368e11ab39c4222e3
+   PASS; compiled warning-free with the pinned Lean version (8 jobs).
+   Audited 691 declarations defined in the project's proof modules,
+   including private and generated declarations.
+   Every transitive axiom set is within:
+     propext, Classical.choice, Quot.sound
+   Violations: none. The audit returns failure on unexpected axioms or an
+   empty audited root; it does not merely print a report.
+4. LEAN_NUM_THREADS=1 lake env leanchecker --fresh --verbose BoundedArity
+   PASS; exit code 0. The root's imported logical declaration environment was
+   replayed into an empty checking environment using the same Lean kernel.
+   This is not an independently implemented kernel check. The standard
+   checker excludes unsafe/partial program declarations from logical replay.
+   There are no unsafe/partial proof declarations introduced by this project.
+
+The automatic audit was separately tested on a valid core-only fixture
+(exit 0), a private sorry dependency (exit 1, sorryAx), an imported custom
+axiom (exit 1), and an empty root (exit 1). The warning-as-error option also
+rejected an intentional warning. Fixtures were outside the project and are
+not imported into it. Test results: audit_gate_tests.json.
+
+SOURCE CORRESPONDENCE
+BoundedArity.lean transitively imports all 35 proof files under BoundedArity/.
+The standalone readable audit is invoked explicitly by the verification script.
+Final definitions and main theorem statements, including Barrier,
+RelaxationCeiling, ArityRestriction, DiscreteJointLaw, and
+InformationInequalities, are byte-for-byte unchanged from milestone 8.
+The code cleanup changes only an unused implicit typeclass parameter on
+unauthorizedBit_antitone; other proof-file changes are comments.
+
+REPRODUCTION
+See ../README.md and ../scripts/verify.sh. First-time setup downloads the
+pinned dependencies. Full fresh replay includes imported mathlib proofs and
+can take substantially longer than an incremental project build.
+
+Raw outputs are in release_0_8_1/. These records establish the observed local
+checks. The later GitHub run should be inspected for the uploaded commit.

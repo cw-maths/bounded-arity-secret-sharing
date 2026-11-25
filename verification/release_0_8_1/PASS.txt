@@ -1,0 +1,2 @@
+PASS: warning-free build, theorem audit, project-wide axiom allowlist,
+and fresh-environment Lean kernel replay all succeeded.

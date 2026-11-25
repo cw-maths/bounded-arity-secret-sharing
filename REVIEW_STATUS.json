@@ -291,5 +291,33 @@
       "Restriction of scalars and extension-degree transfer",
       "Alternating-form/dual-code exact clause construction (the same contract is proved by pair differences)"
     ]
+  },
+  "repository_preparation_0_8_1": {
+    "date": "2026-11-25",
+    "timezone": "Asia/Hong_Kong",
+    "status": "fresh_source_build_and_axiom_audits_and_fresh_kernel_replay_passed",
+    "build_jobs": 7458,
+    "project_warnings": 0,
+    "build_exit_code": 0,
+    "readable_audit_declarations": 138,
+    "automatic_audit_declarations": 691,
+    "automatic_audit_exit_code": 0,
+    "kernel_replay_exit_code": 0,
+    "axioms_allowed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "replay": "same Lean 4.36.0 kernel; --fresh BoundedArity includes imports",
+    "final_definitions_and_main_theorem_statements_unchanged": true,
+    "cleanup": "Remove obsolete source-status comments and unused DecidableEq parameter from unauthorizedBit_antitone.",
+    "github_ci": "workflow prepared; no GitHub run yet",
+    "independent_external_review": "not yet reported",
+    "evidence_files": [
+      "verification/RELEASE_CHECK.txt",
+      "verification/release_sources.json",
+      "verification/release_0_8_1/axiom-audit.json",
+      "verification/release_0_8_1/kernel-replay.log"
+    ]
   }
 }

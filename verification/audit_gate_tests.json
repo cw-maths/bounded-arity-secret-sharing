@@ -1,0 +1,99 @@
+{
+  "date": "2026-11-25",
+  "lean": "leanprover/lean4:v4.36.0",
+  "axiom_audit_commit": "46024e005996495c65ef609368e11ab39c4222e3",
+  "tests": [
+    {
+      "fixture": "clean",
+      "build_exit": 0,
+      "audit_exit": 0,
+      "report": {
+        "allowed": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "audited": 1,
+        "axiomsUsed": [],
+        "ok": true,
+        "root": "AuditFixture",
+        "violations": []
+      }
+    },
+    {
+      "fixture": "private_sorry",
+      "build_exit": 0,
+      "audit_exit": 1,
+      "report": {
+        "allowed": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "audited": 2,
+        "axiomsUsed": [
+          "sorryAx"
+        ],
+        "ok": false,
+        "root": "AuditFixture",
+        "violations": [
+          {
+            "axioms": [
+              "sorryAx"
+            ],
+            "decl": "visible"
+          },
+          {
+            "axioms": [
+              "sorryAx"
+            ],
+            "decl": "_private.AuditFixture.0.hidden"
+          }
+        ]
+      }
+    },
+    {
+      "fixture": "imported_axiom",
+      "build_exit": 0,
+      "audit_exit": 1,
+      "report": {
+        "allowed": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "audited": 1,
+        "axiomsUsed": [
+          "importedClaim"
+        ],
+        "ok": false,
+        "root": "AuditFixture",
+        "violations": [
+          {
+            "axioms": [
+              "importedClaim"
+            ],
+            "decl": "invalid"
+          }
+        ]
+      }
+    },
+    {
+      "fixture": "empty_root",
+      "build_exit": 0,
+      "audit_exit": 1,
+      "report": {
+        "allowed": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "audited": 0,
+        "axiomsUsed": [],
+        "ok": false,
+        "root": "AuditFixture",
+        "violations": []
+      }
+    }
+  ]
+}
