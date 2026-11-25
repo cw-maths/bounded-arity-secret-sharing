@@ -1,163 +1,188 @@
-# Bounded-arity barrier: main formalization complete
+# A linear barrier for bounded-arity information inequalities
 
-**Milestones T1–T8 are implemented and verified.** Milestone 8 assembles the
-single-table barrier from the reviewed specification and proves its numerical
-ceiling, including the prescribed-field rank version and the six-variable
-bound `6*N - 5`.
+Lean 4 formalization developed by Christopher Williamson with substantial
+ChatGPT assistance. This is a **private review snapshot**, prepared for
+checking and mathematical discussion. It is self-contained as a formal
+project; an expository paper is not needed to run the checks.
 
-## Verification
+## The result
 
-The full project was built and audited on 24 November 2026:
+For every proper monotone access structure on a finite set of $N$ participants
+and every integer $r\ge2$, put
 
-- `lake build`: completed successfully, **7458 jobs**.
-- `lake env lean AxiomAudit.lean`: exit code 0, no warnings or errors.
-- **138 declarations audited**; every reported axiom set is a subset of
-  `propext`, `Classical.choice`, and `Quot.sound`.
-- No proof placeholders, project axioms, unsafe declarations, or `native_decide`
-  calls occur in the project sources.
-- All 32 earlier proof modules are byte-for-byte unchanged.
-- All three new modules compile without warnings. The existing harmless
-  unused-section-variable warning in `FormalTable.lean` remains.
+$$c_r=\binom{r-2}{\lfloor(r-2)/2\rfloor}.$$
 
-Complete command output is in `verification/milestone_8.txt`. Dependency
-revisions and source hashes are in `verification/milestone_8.json`.
-`verification/FINAL_SPECIFICATION.txt` maps the final definitions and statements
-to approved E31, E32 and T8. The E28 comparison from milestone 7 is preserved.
-Earlier verification records and historical module introductions describe
-their original milestones; the verification status above applies to the
-complete current project.
+There is **one fixed normalized formal entropy table** that satisfies:
 
-## The final theorem
+- all whole-table polymatroid (Shannon) conditions;
+- every privacy and reconstruction equality, with secret value one;
+- every valid homogeneous information inequality on at most $r$ grouped
+  variables, applied to every choice of groups;
+- all the corresponding homogeneous linear-rank inequalities over every
+  prescribed field, on that same table.
 
-Let Gamma be a proper monotone access structure on N finite participants and
-let r >= 2. Put
+Every physical singleton of the table, and hence its maximum-share objective,
+has the exact value
 
-    c_r = choose(r - 2, floor((r - 2)/2)),
-    F(X) = (formalTable Gamma (arityConstant r) X : Real).
+$$1+c_r(N-1).$$
 
-This SAME explicit table has all the following properties:
+Consequently the information relaxation, and its strengthening by all
+prescribed-field rank constraints, have optimum **at most** this value. For
+$r=6$, the bound is **$6N-5$**.
 
-1. It is a polymatroid and satisfies every normalized access equality,
-   including secret value one.
-2. It satisfies every valid homogeneous information inequality on k <= r
-   grouped variables, for every grouping of original share/secret indices.
-3. For every prescribed field K, it also satisfies every homogeneous
-   K-linear-rank inequality at arity at most r.
-4. Every physical singleton has value exactly `1 + c_r*(N - 1)`.
+### What this says about lower-bound methods
 
-The information-validity domain remains arbitrary countable alphabets with
-finite full-joint entropy. Coefficients are arbitrary real numbers. Groups
-may be empty, repeated, overlapping, of any size, and may contain the secret.
-The quantifiers explicitly include k=0 and k=1. There is no field-size or
-characteristic condition for the rank conclusion.
+A lower bound certified by these constraints must hold for every feasible
+table. The displayed feasible table therefore limits the lower bound that
+these constraints can certify. For any **fixed** $r$, this ceiling is linear
+in $N$, even if every valid inequality of that arity is available and they
+are used together. The coefficient depends on $r$.
 
-The table is fixed before fields, inequalities and groupings are chosen.
-The local models used to verify different groupings may be different.
+This is a limitation of the specified relaxation. It does not construct a
+single secret-sharing scheme with these share sizes. The local models for
+different choices of groups may differ.
 
-## The objective ceiling
+### Exact scope
 
-`maxShare F` is the actual maximum of the physical singleton entries. The code
-proves it is attained and proves its equivalence with the reviewed pointwise
-predicate `MaxShareAtMost`. Properness gives at least one participant.
+Arity counts **groups**, not participants. Each group is an arbitrary subset
+of the original share and secret indices. Groups may be empty, repeated,
+overlapping, arbitrarily large, or contain the secret. All $k\le r$ are
+included, even $k=0,1$.
 
-`relaxationValue r Gamma` is the infimum of `maxShare F` over information-feasible
-tables. `rankRelaxationValue K r Gamma` is the analogous infimum after adding
-all prescribed-field rank constraints. Their sets of objective values are
-proved nonempty and bounded below. The final conclusions are
+Information inequalities have arbitrary real coefficients and are homogeneous.
+Validity is defined for arbitrary countable alphabets with finite full-joint
+entropy. The constructed local witnesses have finite alphabets and realize
+the table exactly in bits. Every grouped projection is also exactly linearly
+representable in a common finite-dimensional space over **any field**, without
+a field-size or characteristic restriction.
 
-    relaxationValue r Gamma <= 1 + c_r*(N - 1),
-    rankRelaxationValue K r Gamma <= 1 + c_r*(N - 1).
+The explicit table depends only on the access structure and $r$, before any
+fields, inequalities, or groups are chosen. The core formal statements are
+`BoundedArity.barrier_checkpoint`, `barrier_exists_witness`,
+`relaxation_ceiling`, and `rank_relaxation_ceiling`. Their six-variable
+specializations end in `_six`.
 
-These are upper bounds on the relaxation optima. For r=6 both are formally
-specialized to `6*N - 5`. The witness itself attains the displayed ceiling;
-the infimum may be smaller for a particular access structure.
+## Verify the repository
 
-## Principal declarations
-
-All names below are in namespace `BoundedArity`.
-
-| Declaration | Meaning |
-| --- | --- |
-| `FeasibleAtArity` | The exact E31 information relaxation |
-| `RankConstraintsAtArity` | All prescribed-field rank constraints |
-| `RankFeasibleAtArity` | Information and rank constraints on one table |
-| `localRepresentability_le_arity_checkpoint` | Exact local ranks for every k <= r |
-| `localEntropy_le_arity_checkpoint` | Exact finite entropy witnesses for every k <= r |
-| `barrier_checkpoint` | T8 for the explicitly fixed formal table |
-| `barrier_exists_witness` | One witness before all fields, inequalities and groupings |
-| `maxShareAtMost_iff` | The reviewed pointwise bound equals a maximum bound |
-| `formalTable_maxShare` | Exact maximum physical-share value of the witness |
-| `relaxation_ceiling` | The information-relaxation infimum bound |
-| `rank_relaxation_ceiling` | The rank-strengthened infimum bound over every field |
-| `relaxation_ceiling_six` | The information bound `6*N - 5` |
-| `rank_relaxation_ceiling_six` | The rank-strengthened bound `6*N - 5` |
-
-## Update the Mac project
-
-Save `bounded_arity_lean_milestone_8.zip` in Downloads, then run these commands
-one line at a time in Terminal:
+Install the [Lean 4 VS Code extension / Lean toolchain manager](https://lean-lang.org/install/)
+if needed. In a terminal at the repository root, run:
 
 ```sh
-unzip -o "$HOME/Downloads/bounded_arity_lean_milestone_8.zip" -d "$HOME/Documents"
-cd "$HOME/Documents/bounded_arity_lean"
-lake build
-lake env lean AxiomAudit.lean
+lake exe cache get
+bash scripts/verify.sh --fresh-build
 ```
 
-An existing milestone-7 installation has the needed dependencies. The source
-archive preserves its dependency caches when extracted over the same project
-folder. For a fresh installation, run `lake exe cache get` before the build
-to obtain the full pinned mathlib cache.
+The first command retrieves compiled dependencies at the committed versions.
+The second rebuilds this project's sources with warnings treated as failures,
+prints the selected theorem statements and axioms, enforces an axiom allowlist
+for every declaration defined in the project's proof modules, and replays
+the compiled declarations and imports through Lean's kernel. It exits
+unsuccessfully if a required check fails.
+`--fresh-build` clears only this project's build output, retaining dependency
+caches. Logs are kept in `.verification/`.
 
-The audit prints the exact feasible-set definitions, the maximum and infimum
-definitions, the final theorem types, and their transitive axiom dependencies.
-It preserves all previous audit entries as well.
+The accepted axioms are exactly the allowlist
+`propext`, `Classical.choice`, and `Quot.sound`; each audited declaration may
+use a subset. The audit rejects proof placeholders and unexpected axioms in
+transitive dependencies. [AxiomAudit.lean](AxiomAudit.lean) also provides a
+readable report of 138 selected declarations; that printout alone is not the
+automated gate.
 
-## New modules
+The included GitHub Actions workflow runs verification on pushes, pull
+requests, and manual requests. A workflow file is a recipe: the first actual
+GitHub run happens after the repository is uploaded. Check the run's result
+for the exact commit you are reviewing.
 
-| File | Purpose |
+**Kernel replay uses the same Lean kernel implementation.** It starts from
+an empty checking environment and checks the stored proof objects and their
+imports again, without rerunning the tactics that produced them. It is an
+additional check of the stored proof/dependency chain, not a check by a
+separately implemented logic engine. See
+[Lean's validation guide](https://lean-lang.org/doc/reference/4.36.0/ValidatingProofs/).
+
+The release's observed checks and limitations are recorded in
+[verification/RELEASE_CHECK.txt](verification/RELEASE_CHECK.txt). Earlier
+milestone logs are historical evidence for their original source versions.
+
+### Inspect the meaning
+
+Start with [Barrier.lean](BoundedArity/Barrier.lean) and
+[RelaxationCeiling.lean](BoundedArity/RelaxationCeiling.lean). The compact
+[review guide](docs/REVIEW_GUIDE.md) points to the definitions needed to assess
+the result, without requiring a reading of the intermediate proof method.
+A successful check establishes the formal propositions; a mathematical reader
+still checks that those propositions mean what is intended.
+
+## Relationship to earlier work
+
+The main advance is the **linear ceiling for every fixed arity**.
+
+| Earlier result | Ceiling on the maximum-share lower bound certifiable by the stated constraints |
 | --- | --- |
-| `BoundedArity/ArityRestriction.lean` | Pad with empty groups and restrict one common model; includes k=0,1 |
-| `BoundedArity/Barrier.lean` | Approved E31 definitions and final T8 witness, independent of all tests |
-| `BoundedArity/RelaxationCeiling.lean` | Actual maximum objective, nonempty/lower-bounded infimum sets, both ceilings and six-variable specializations |
+| Csirmaz, Shannon constraints | Linear in $N$ |
+| Beimel–Orlov, all four- and five-variable rank/information inequalities | Linear in $N$; also treats specified higher-arity families |
+| Martín–Padró–Yang, all fixed-arity rank/information inequalities | $\sum_{i=0}^{r-2}\binom{N-1}{i}=O_r(N^{r-2})$ |
+| This formalization, every fixed arity $r$ | $1+c_r(N-1)=O_r(N)$ |
 
-## Proof outline — optional reading
+The earlier literature already permits groups of original indices and uses
+local representations. Those features by themselves are not the novelty.
+The improvement is retaining a linear objective for every fixed arity,
+including six and above, while satisfying all the stated constraints together.
 
-A query with k <= r groups is padded with empty groups. The existing exact
-T6 model for r groups restricts to one common model for the original labels,
-with the coefficient still fixed at c_r. This includes zero and one groups.
+References:
 
-For information inequalities, take the binary-field model and apply T7 to
-obtain one finite joint law with exactly those entropies in bits. For rank
-inequalities, use the exact model over the prescribed field directly. In each
-case, universal validity applies to the chosen model and verifies an inequality
-on the corresponding entries of the same global formal table.
+1. László Csirmaz, *The Size of a Share Must Be Large*, Journal of Cryptology
+   10 (1997), 223–231, Theorem 3.5.
+   [Paper](https://www.cs.umd.edu/~gasarch/TOPICS/secretsharing/sizelarge.pdf).
+2. Amos Beimel and Ilan Orlov, *Secret Sharing and Non-Shannon Information
+   Inequalities*, IEEE Transactions on Information Theory 57(9) (2011),
+   5634–5649. Preliminary version: TCC 2009.
+   [Publication record](https://cris.bgu.ac.il/en/publications/secret-sharing-and-non-shannon-information-inequalities-2/).
+3. Sebastià Martín, Carles Padró, and An Yang, *Secret Sharing, Rank
+   Inequalities, and Information Inequalities*, IEEE Transactions on
+   Information Theory 62(1) (2016), 599–609, Theorem 6.2.
+   [Final manuscript](https://eprint.iacr.org/2013/082).
 
-T3 supplies the whole-table polymatroid and access conditions and the exact
-physical singleton values. Consequently this table belongs to both feasible
-sets and its actual maximum is `1 + c_r*(N - 1)`. Each objective infimum is at
-most that attained value. At r=6, properness ensures N>=1 and the arithmetic
-simplifies to `6*N - 5`.
+The sum in the table is the final Martín–Padró–Yang bound. Its October 2014
+[earlier draft](https://web.mat.upc.edu/carles.padro/papers/ssriii.pdf), Theorem
+5.2, instead states $\binom{N+r-3}{r-2}$; both have the same polynomial order.
+A targeted literature check supports the comparison above, but is not an
+exhaustive certification of historical priority.
 
-## Completed scope
+Useful discussion questions include what growing arity can achieve, which
+auxiliary-variable compatibility constraints go beyond this relaxation, and
+whether the coefficient $c_r$ can be improved. The ceiling still permits
+better constants and better bounds for particular access structures.
 
-The main reviewed milestones **T1–T8 are complete**. The result is a ceiling on
-the specified relaxation. Local models can vary with the grouping; the theorem
-does not assert a global small-share scheme for each access structure.
+## Formalized scope and provenance
 
-Optional common conditioning from Appendix B and the arity-growth/counting
-consequences from Section 6 remain separate extensions outside this main scope.
-The exact every-field construction makes the alternate restriction-of-scalars
-route unnecessary. This package does not claim that alternate proof or the
-optional extensions.
+The main reviewed milestones T1–T8 are implemented. The separate
+common-conditioning extension with the same coefficient, later asymptotic
+and counting results, and arbitrary auxiliary-variable extension systems
+are outside this implementation. A separate bundled definition of a
+secret-sharing scheme and its general translation into the relaxation is
+also not part of this project's formal interface.
 
-## Version pins
+[AI_ASSISTANCE.md](AI_ASSISTANCE.md) records the development assistance and
+human specification review. [REVIEW_STATUS.json](REVIEW_STATUS.json) and the
+historical logs preserve the review history. This snapshot has not received
+independent external mathematical review.
 
-- Package version: `0.8.0`.
+## Versions and sharing
+
+- Project version: `0.8.1` (repository preparation of the verified `0.8.0`).
 - Lean: `leanprover/lean4:v4.36.0`.
-- Lean executable commit: `611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9`.
 - mathlib: `fc4f59e577feb1a4956671bc04ac18aaaf8cd842`.
-- All nine dependency revisions: unchanged `lake-manifest.json`.
+- All dependency revisions are committed in `lake-manifest.json`.
 
-Specification sources: the approved 35-page review packet, particularly E31,
-E32 and T8, and the main theorem / ceiling corollary of the expanded manuscript.
+The final mathematical definitions and main theorem statements are preserved.
+Cleanup removes obsolete source-status comments and an unused typeclass
+parameter from one helper theorem; it adds reproducible verification and
+review documentation.
+
+For a small initial audience, use a private GitHub repository and invite
+reviewers with Read access. [GitHub setup directions](docs/GITHUB_SETUP.md)
+explain how to create an organization under your existing personal login and
+upload this repository. `CITATION.cff` identifies this review snapshot; its
+commit is the precise version to discuss. Public release, archival DOI,
+publication-stage licensing and the expository paper can be addressed later.

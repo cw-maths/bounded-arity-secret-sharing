@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: >-
+  For discussion of this private review snapshot, identify its Git commit and
+  version. Public citation metadata will be finalized at wider release.
+type: software
+title: A Linear Barrier for Bounded-Arity Information Inequalities in Secret Sharing
+version: 0.8.1
+authors:
+  - family-names: Williamson
+    given-names: Christopher
+abstract: >-
+  A Lean 4 formalization of an explicit linear ceiling, for every fixed arity,
+  on the maximum-share objective of the specified information-inequality and
+  prescribed-field rank relaxations for secret sharing. Developed with
+  substantial ChatGPT assistance; see AI_ASSISTANCE.md.
