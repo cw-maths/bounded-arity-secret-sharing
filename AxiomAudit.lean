@@ -3,8 +3,9 @@ module
 import BoundedArity
 
 /-! Run with `lake env lean AxiomAudit.lean` after `lake build`.
-The commands print the formal target and the logical axioms used by the
-completed results. None should depend on `sorryAx` or a project-specific axiom.
+This human-readable report prints the formal targets and their transitive
+axiom dependencies. The repository verification script also runs an enforced
+allowlist audit; see the README for the complete verification command.
 -/
 
 #check BoundedArity.interpolation
@@ -18,8 +19,7 @@ completed results. None should depend on `sorryAx` or a project-specific axiom.
 #print axioms BoundedArity.card_le_middle_choose_of_antichain_subsets
 #print axioms BoundedArity.pair_codegree_le
 
--- Milestone 3: these declarations must compile before the new checkpoint
--- can be described as verified. The audit includes its transitive axioms.
+-- T3: the whole-table facts and their transitive axioms.
 #check BoundedArity.pairCoverage_singleton
 #print axioms BoundedArity.pairCoverage_strict_submodular
 #print axioms BoundedArity.pairCoverage_singleton

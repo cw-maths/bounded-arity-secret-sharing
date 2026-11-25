@@ -15,7 +15,7 @@ The strict submodularity lemma uses a pair with one endpoint in each of the
 two set differences. It is the unit of slack needed for the access indicator
 in the fixed table.
 
-This source is a draft pending compilation with the pinned Lean toolchain.
+These facts are used by `FormalTable` and the local linear constructions.
 -/
 
 @[expose] public section

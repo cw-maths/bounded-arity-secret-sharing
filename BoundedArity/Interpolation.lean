@@ -16,8 +16,8 @@ labels (the manuscript takes `G = Fin r`). `B j` is the physical part of group j
 Groups may be empty, repeated, or overlapping. No restriction is placed on
 their sizes.
 
-This milestone proves only the combinatorial interpolation lemma and its
-prerequisites. It makes no claim yet about rank, entropy, or the full barrier.
+This module supplies the combinatorial interpolation lemma and its
+prerequisites for the later local rank and entropy representations.
 -/
 
 @[expose] public section

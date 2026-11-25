@@ -13,10 +13,8 @@ specification and supplies the proofs targeted by checkpoint T3. The definition
 `physicalPart` is reused from C11 in `Interpolation.lean`; C12 is implemented in
 `PairCoverage.lean`.
 
-Status: this source includes corrections from the first user build and awaits
-recompilation against the pinned Lean and mathlib toolchain. It contains proof
-terms, not added axioms or placeholders. The presence of a proof script is not
-a claim that the compiler has checked it.
+The final barrier imports these whole-table facts through `Checkpoint3`.
+Current build and audit instructions are in the repository README.
 -/
 
 @[expose] public section
@@ -158,6 +156,7 @@ omit [DecidableEq P] in
   classical
   simp [unauthorizedBit, Γ.univ_authorized]
 
+omit [DecidableEq P] in
 theorem unauthorizedBit_antitone (Γ : AccessStructure P)
     {U V : Finset P} (hUV : U ⊆ V) :
     unauthorizedBit Γ V ≤ unauthorizedBit Γ U := by

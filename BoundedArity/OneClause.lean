@@ -18,7 +18,7 @@ field. This expresses the existence of enough distinct evaluation points
 and applies to both finite and infinite fields. Numerical finite-field and
 infinite-field corollaries are included below.
 
-Compilation and the axiom audit are required before marking T4 verified.
+The complementary every-field construction is in `OneClauseExact`.
 -/
 
 @[expose] public section

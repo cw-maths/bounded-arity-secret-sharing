@@ -8,11 +8,9 @@ public import BoundedArity.FormalTable
 This file collects T3 of the approved review packet and adds the named arity
 coefficient (B10) and the maximum-share bound predicate (E32).
 
-This is an UNCOMPILED DRAFT. The source must pass `lake build` and the axiom
-audit before this checkpoint is described as formally verified.
-
-No claim about local linear representations, entropy inequalities, or the
-final bounded-arity barrier is made in this milestone.
+This checkpoint collects the whole-table polymatroid and access properties.
+The local representation and entropy results are assembled with it in
+`Barrier` and `RelaxationCeiling`.
 -/
 
 @[expose] public section
